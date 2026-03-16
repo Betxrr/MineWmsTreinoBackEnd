@@ -1,4 +1,6 @@
 import express from 'express';
+import { produtos } from '../src/banco.js';
+import { atualizarProduto } from '../src/produtoController.js';
 
 const app = express();
 const PORT = 3000;
@@ -10,12 +12,10 @@ const PORT = 3000;
 app.use(express.json());
 
 // ==========================================
-// 2. BANCO DE DADOS EM MEMÓRIA (Mock)
+// Rota de PUT (Agora apontando para o arquivo externo!)
 // ==========================================
-const produtos = [
-  { id: 1, nome: 'Pallet de Madeira', quantidade: 50, preco: 120.50 },
-  { id: 2, nome: 'Empilhadeira Elétrica', quantidade: 2, preco: 85000.00 }
-];
+
+app.put('/produtos/:id', atualizarProduto);
 
 // ==========================================
 // 3. ROTAS (Os Endpoints da nossa API)
@@ -40,10 +40,10 @@ app.get('/produtos/:id', (req, res) => {
 
 // Rota para Adicionar um novo produto (POST /produtos)
 app.post('/produtos', (req, res) => {
-  const { nome, quantidade, preco } = req.body;
+  const { nome, quantidade, preco } = req.body ?? {};
 
   // Validação básica
-  if (!nome || !quantidade || !preco) {
+  if (nome === undefined || quantidade === undefined || preco === undefined) {
     return res.status(400).json({ mensagem: "Nome, quantidade e preço são obrigatórios!" });
   }
 
@@ -73,8 +73,6 @@ app.delete('/produtos/:id', (req, res) => {
   }
 
   produtos.splice(index, 1);
-  res.json({ mensagem: "Produto removido com sucesso!" });
-
   res.status(200).json({ mensagem: "Produto removido com sucesso!" });
 
 });
