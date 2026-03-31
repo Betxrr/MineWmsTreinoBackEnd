@@ -18,11 +18,5 @@ Durante a construção deste WMS (Warehouse Management System) simplificado, foq
 * **Arquitetura em Camadas:** Saí de um `index.js` monolítico para uma estrutura dividida. Entendi o papel de cada peça: a Porta de Entrada (`Index`), o Roteamento (`Routes`), as Regras de Negócio (`Controllers`) e a Persistência (`Database`).
 * **Segurança e Estabilidade:** Compreendi na prática que o fluxo assíncrono (`async/await`) evita que o servidor trave. Mais importante: aprendi a usar o `try/catch/finally` não só para ver erros, mas para impedir que o sistema inteiro caia.
 * **Fluxo HTTP:** Entendi como os dados trafegam da internet (JSON), passam por Middlewares (filtros) e chegam ao banco de dados com segurança, retornando os Status Codes corretos (200, 201, 400, 404, 500).
-
-## 🚀 Próximos Passos: O Mundo .NET
-Este projeto cumpriu seu papel e me deu uma base inabalável de como APIs REST funcionam por debaixo dos panos. 
-
-Agora, estou levando toda essa bagagem estrutural (Controllers, Rotas, Tratamento de Erros e SQL) para o meu foco principal: **C# e ASP.NET Core**.
-
 ---
 *Sinta-se à vontade para explorar os arquivos. Cada linha de código aqui foi escrita para entender o "porquê", e não apenas o "como".*
