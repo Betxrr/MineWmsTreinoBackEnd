@@ -1,22 +1,31 @@
-# 📦 Mini WMS API - Os Bastidores do Back-end
+# 🚀 API de Fundamentos: Controle de Inventário (PoC)
 
-**Olá! Se você está avaliando meu perfil, este repositório é um "livro aberto" sobre a minha evolução como desenvolvedor.**
+**Este repositório é um projeto de treinamento focado na implementação de padrões fundamentais de Back-end utilizando Node.js e banco de dados relacional.**
 
-## 🎯 Por que este projeto existe?
-No meu trabalho anterior (com o sistema de logística SkyCargo), eu lidava com telas dando erro e não entendia como o Front-end conversava com o banco de dados. Eu queria desmistificar essa "caixa preta". 
+## 🎯 Objetivo do Projeto
+O propósito deste projeto é consolidar os pilares de uma API robusta: a comunicação eficiente entre o servidor e o banco de dados SQL Server, garantindo que o fluxo de dados siga padrões de mercado em termos de organização e segurança.
 
-O objetivo deste projeto não foi apenas fazer um CRUD funcionar, mas sim **entender os fundamentos da web e a arquitetura de uma API** antes de dar meu próximo grande passo profissional.
+## 🏗️ Arquitetura e Organização
+Optei por uma **Arquitetura em Camadas (Layered Architecture)** para garantir a separação de responsabilidades e facilitar a manutenção do código:
 
-## 🛠️ Tecnologias
-* **Node.js + Express:** Construção do servidor, rotas e middlewares.
-* **SQL Server:** Banco de dados relacional (via `mssql` e autenticação Windows).
-* **Postman:** Testes de requisição (GET, POST) e respostas HTTP.
+* **`index.js`**: Ponto de entrada da aplicação e configuração do servidor Express.
+* **`routes/`**: Camada de roteamento, responsável por desacoplar as URLs da lógica de execução.
+* **`controllers/`**: Camada de lógica, onde as requisições são processadas e as respostas são formuladas.
+* **`database/`**: Camada de persistência, isolando a conexão e as queries ao SQL Server.
 
-## 🧠 A Experiência (O que eu realmente aprendi)
-Durante a construção deste WMS (Warehouse Management System) simplificado, foquei em sair do "copiar e colar" para dominar os conceitos:
+## 🛠️ Stack Técnica
+* **Runtime:** Node.js
+* **Framework:** Express
+* **Banco de Dados:** SQL Server (Driver `mssql`)
+* **Ferramenta de Teste:** Postman (Validação de contratos e rotas HTTP)
 
-* **Arquitetura em Camadas:** Saí de um `index.js` monolítico para uma estrutura dividida. Entendi o papel de cada peça: a Porta de Entrada (`Index`), o Roteamento (`Routes`), as Regras de Negócio (`Controllers`) e a Persistência (`Database`).
-* **Segurança e Estabilidade:** Compreendi na prática que o fluxo assíncrono (`async/await`) evita que o servidor trave. Mais importante: aprendi a usar o `try/catch/finally` não só para ver erros, mas para impedir que o sistema inteiro caia.
-* **Fluxo HTTP:** Entendi como os dados trafegam da internet (JSON), passam por Middlewares (filtros) e chegam ao banco de dados com segurança, retornando os Status Codes corretos (200, 201, 400, 404, 500).
+## 🧠 Destaques Técnicos
+Neste treinamento, foquei em aplicar soluções para desafios reais do desenvolvimento backend:
+
+1. **Fluxo Assíncrono:** Implementação de `async/await` para evitar o bloqueio do Event Loop em chamadas de I/O ao banco de dados.
+2. **Resiliência:** Uso estratégico de blocos `try/catch/finally` para garantir que a aplicação não interrompa a execução em cenários de erro e que as conexões com o banco sejam encerradas corretamente.
+3. **Padronização HTTP:** Utilização rigorosa dos verbos (GET, POST) e códigos de status (200, 201, 400, 404, 500) para fornecer feedbacks claros ao consumidor da API.
+4. **Integração Relacional:** Prática de CRUD e manipulação de dados diretamente via SQL Server (T-SQL).
+
 ---
-*Sinta-se à vontade para explorar os arquivos. Cada linha de código aqui foi escrita para entender o "porquê", e não apenas o "como".*
+*Este é um projeto de estudo técnico. Sinta-se à vontade para analisar a estrutura de pastas e a lógica de implementação.*
